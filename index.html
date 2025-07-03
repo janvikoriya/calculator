@@ -1,0 +1,94 @@
+<html>
+<head>
+    <style>
+        table {
+            width: 200px;
+            height: 150px;
+            background-color: #556688;
+            font-color: rgb(181, 90, 90);
+            border: solid;
+        }
+        
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+        }
+        
+        .contener {
+            margin: auto;
+            text-align: center;
+        }
+        
+        input {
+            font-size: 17px;
+            border: solid;
+            background-color: #556688;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contener">
+        <h1>
+            <center>calculater</center>
+        </h1>
+        <input type="text" name="select" id="select">
+    </div>
+    <br>
+    <table align="center">
+        <tr>
+            <td><button>(</button></td>
+            <td><button>)</button></td>
+            <td><button>%</button></td>
+            <td><button>/</button></td>
+        </tr>
+        <tr>
+            <td><button>7</button></td>
+            <td><button>8</button></td>
+            <td><button>9</button></td>
+            <td><button>*</button></td>
+        </tr>
+        <tr>
+            <td><button>4</button></td>
+            <td><button>5</button></td>
+            <td><button>6</button></td>
+            <td><button>-</button></td>
+        </tr>
+        <tr>
+            <td><button>1</button></td>
+            <td><button>2</button></td>
+            <td><button>3</button></td>
+            <td><button>+</button></td>
+        </tr>
+        <tr>
+            <td><button>c</button></td>
+            <td><button>0</button></td>
+            <td><button>.</button></td>
+            <td><button>=</button></td>
+        </tr>
+    </table>
+    <script >
+        let screen = document.getElementById('select');
+        console.log(screen);
+buttons = document.querySelectorAll('button');
+let screenValue = '';
+for (item of buttons) {
+    item.addEventListener('click', (e) => {
+        buttonText = e.target.innerText;
+        console.log('Button text is', buttonText)
+        if (buttonText == 'c') {
+            screenValue = "";
+            screen.value = screenValue;
+        } else if (buttonText == '=') {
+            screen.value = eval(screenValue);
+        } else {
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+    })
+}
+    </script>
+</body>
+
+</html>
